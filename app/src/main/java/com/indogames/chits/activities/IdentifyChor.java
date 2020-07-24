@@ -2,6 +2,7 @@ package com.indogames.chits.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.indogames.chits.R;
+import com.indogames.chits.ResultActivity;
 import com.indogames.chits.action.ThrowChits;
 import com.indogames.chits.beans.Player;
 import com.indogames.chits.constants.GameConstants;
@@ -27,13 +29,13 @@ public class IdentifyChor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify_chor);
-//        Bundle bundle;
         Player[] players = (Player[]) getIntent().getSerializableExtra("Players");
         createButtonsForPlayers (players);
 
     }
 
     // Creating buttons with the names of players
+    @SuppressLint("ResourceAsColor")
     private void createButtonsForPlayers(final Player[] players) {
         LinearLayout linear = findViewById(R.id.rootLayout);
 
@@ -49,7 +51,8 @@ public class IdentifyChor extends AppCompatActivity {
 
             if(players[i].getRole().getRole().equalsIgnoreCase(GameConstants.TITLE_POLICE)) {
                 policeIndex = i;
-                button.setBackgroundColor(Color.YELLOW);
+                button.setBackgroundColor(R.color.colorAppBackground);
+                button.setTextColor(R.color.colorAppFont);
                 button.setText(players[i].getPlayerName() + " => Police");
                 button.setEnabled(false); // disable this button for click events
             } else if (players[i].getRole().getRole().equalsIgnoreCase(GameConstants.TITLE_CHOR)) {
@@ -85,8 +88,11 @@ public class IdentifyChor extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent(getApplicationContext(), ResultActivity.class);
-//                resultIntent.putExtra("Result", players);
+                resultIntent.putExtra("Result", players);
                 startActivity(resultIntent);
+                finish();
+//                ResultActivity resut = new ResultActivity();
+//                resut.show(getSupportFragmentManager(), "Scoreboard");
             }
         });
     }

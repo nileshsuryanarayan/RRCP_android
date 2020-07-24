@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.064" />
 
     <EditText
+        android:hint="Player name"
         android:id="@+id/P4name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -36,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/P3name" />
 
     <EditText
+        android:hint="Player name"
         android:id="@+id/P3name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/P2name" />
 
     <EditText
+        android:hint="Player name"
         android:id="@+id/P2name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +70,7 @@
         app:layout_constraintTop_toBottomOf="@+id/P1name" />
 
     <EditText
+        android:hint="Player name"
         android:id="@+id/P1name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
