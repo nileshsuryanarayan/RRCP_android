@@ -24,20 +24,29 @@ public class IdentifyChor extends AppCompatActivity {
     private int chorIndex;
     private int policeIndex;
     private boolean isChorGuessed = false;
+    private Button scoresButton;
+    private Button thrwChits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_identify_chor);
+
+        scoresButton = (Button) findViewById(R.id.showScores);
+        thrwChits = (Button) findViewById(R.id.thrwchit);
+        scoresButton.setVisibility(View.INVISIBLE);
+        thrwChits.setVisibility(View.INVISIBLE);
+
         Player[] players = (Player[]) getIntent().getSerializableExtra("Players");
         createButtonsForPlayers (players);
+
 
     }
 
     // Creating buttons with the names of players
-    @SuppressLint("ResourceAsColor")
     private void createButtonsForPlayers(final Player[] players) {
         LinearLayout linear = findViewById(R.id.rootLayout);
+        scoresButton = (Button) findViewById(R.id.showScores);
 
         for (int i=0; i<players.length; i++) {
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
@@ -51,8 +60,8 @@ public class IdentifyChor extends AppCompatActivity {
 
             if(players[i].getRole().getRole().equalsIgnoreCase(GameConstants.TITLE_POLICE)) {
                 policeIndex = i;
-                button.setBackgroundColor(R.color.colorAppBackground);
-                button.setTextColor(R.color.colorAppFont);
+                button.setBackgroundColor(0xFFFFD740); // R.color.colorAppBackground);
+                button.setTextColor(0xFFE65100);
                 button.setText(players[i].getPlayerName() + " => Police");
                 button.setEnabled(false); // disable this button for click events
             } else if (players[i].getRole().getRole().equalsIgnoreCase(GameConstants.TITLE_CHOR)) {
@@ -74,16 +83,20 @@ public class IdentifyChor extends AppCompatActivity {
                         } else {
                             // wrong guess fella
                             players[policeIndex].getRole().setPoints(GameConstants.SCORE_0);
+                            players[policeIndex].setScore(players[policeIndex].getRole().getPoints());
                             players[chorIndex].getRole().setPoints(GameConstants.SCORE_500);
+                            players[chorIndex].setScore(players[chorIndex].getRole().getPoints());
                             viewResult.setText("Wrong guess!");
                         }
 
                     }
+                    scoresButton.setVisibility(View.VISIBLE);
+                    thrwChits.setVisibility(View.VISIBLE);
                 }
             });
 
         }
-        Button scoresButton = (Button) findViewById(R.id.showScores);
+
         scoresButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +108,22 @@ public class IdentifyChor extends AppCompatActivity {
 //                resut.show(getSupportFragmentManager(), "Scoreboard");
             }
         });
+
+        thrwChits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThrowChits throwChit = new ThrowChits();
+                Player[] newPlayers = throwChit.throwchits(players);
+                Intent intent = new Intent(getApplicationContext(), IdentifyChor.class);
+                intent.putExtra("Players", newPlayers);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    private void throwChitsAgain() {
+
     }
 
     private boolean isChor(int clickedButton, Player[] players) {

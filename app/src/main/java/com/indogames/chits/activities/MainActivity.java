@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViewById(R.id.P1name).requestFocus();
+
         thrwChits = (Button) findViewById(R.id.throwIt);
         thrwChits.setOnClickListener(new View.OnClickListener() {
             @Override

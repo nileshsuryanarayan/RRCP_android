@@ -36,6 +36,7 @@ public class ThrowChits {
 		if (chits.length == players.length) {
 			for (int i = 0; i < players.length; i++) {
 				players[i].setRole(roles[chits[i]]);
+				players[i].setScore(players[i].getRole().getPoints()); // Initialize score with assigned role's points
 				if(players[i].getRole().getId() == GameConstants.ID_POLICE) {
 					System.out.println(players[i].getPlayerName() + " is " + players[i].getRole().getRole());
 				}
