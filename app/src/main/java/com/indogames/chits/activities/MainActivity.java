@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -25,14 +27,26 @@ public class MainActivity extends AppCompatActivity {
     private Player three;
     private Player four;
     private EditText editText;
+    private String noOfRounds;
+    private int rounds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.P1name).requestFocus();
 
+        noOfRounds = findViewById(R.id.rounds).toString();
+        if (noOfRounds.matches("")) {
+
+            rounds = GameConstants.DEFAULT_ROUNDS;
+        } else {
+//            System.out.println("No. of rounds:"+noOfRounds+"Soda");
+//            rounds = Integer.parseInt(noOfRounds);
+        }
+        System.out.println("No. of rounds:"+noOfRounds+"Yoda");
         thrwChits = (Button) findViewById(R.id.throwIt);
         thrwChits.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,19 +66,36 @@ public class MainActivity extends AppCompatActivity {
         four = new Player();
 
         editText = (EditText)(findViewById(R.id.P1name));
-        one.setPlayerName(editText.getText().toString());
+
+        if (!editText.getText().toString().matches("") ) {
+            one.setPlayerName(editText.getText().toString());
+        } else {
+            one.setPlayerName(GameConstants.PLAYER_ONE);
+        }
         one.setViewId(editText.getId());
 
         editText = (EditText)(findViewById(R.id.P2name));
-        two.setPlayerName(editText.getText().toString());
+        if (!editText.getText().toString().matches("") ) {
+            two.setPlayerName(editText.getText().toString());
+        } else {
+            two.setPlayerName(GameConstants.PLAYER_TWO);
+        }
         two.setViewId(editText.getId());
 
         editText = (EditText)(findViewById(R.id.P3name));
-        three.setPlayerName(editText.getText().toString());
+        if (!editText.getText().toString().matches("") ) {
+            three.setPlayerName(editText.getText().toString());
+        } else {
+            three.setPlayerName(GameConstants.PLAYER_THREE);
+        }
         three.setViewId(editText.getId());
 
         editText = (EditText)(findViewById(R.id.P4name));
-        four.setPlayerName(editText.getText().toString());
+        if (!editText.getText().toString().matches("") ) {
+            four.setPlayerName(editText.getText().toString());
+        } else {
+            four.setPlayerName(GameConstants.PLAYER_FOUR);
+        }
         four.setViewId(editText.getId());
 
         Player[] players = { one, two, three, four };

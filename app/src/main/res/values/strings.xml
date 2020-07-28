@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">chits</string>
+    <string name="app_name">Indo Games</string>
+    <fraction name="app_version">0.0.1</fraction>
 </resources>
