@@ -6,6 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+    <ImageView
+        android:id="@+id/imageP4"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameP2"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/imageP3"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameP1"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/imageP2"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action"
+        app:srcCompat="@drawable/profile_icon" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -20,67 +53,55 @@
 
     <EditText
         android:id="@+id/P4name"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
         android:ems="10"
-        android:hint="Player name"
+        android:hint="Player 4"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/P3name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageP4" />
 
     <EditText
         android:id="@+id/P3name"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="Player name"
+        android:hint="Player 3"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/P2name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageP3" />
 
     <EditText
-        android:id="@+id/P2name"
-        android:layout_width="wrap_content"
+        android:id="@+id/nameP2"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="35dp"
         android:ems="10"
-        android:hint="Player name"
+        android:hint="Player 2"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/P1name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageP2" />
 
     <EditText
-        android:id="@+id/P1name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
+        android:id="@+id/nameP1"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="Player name"
+        android:hint="Player 1"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/action" />
+        app:layout_constraintTop_toBottomOf="@+id/imageP1" />
 
     <Button
         android:id="@+id/throwIt"
@@ -90,7 +111,7 @@
         android:layout_marginLeft="161dp"
         android:layout_marginEnd="162dp"
         android:layout_marginRight="162dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="50dp"
         android:text="Throw chits"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +128,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-<!--    <EditText-->
+    <ImageView
+        android:id="@+id/imageP1"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/action"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <!--    <EditText-->
 <!--        android:id="@+id/rounds"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->

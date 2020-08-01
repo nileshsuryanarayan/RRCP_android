@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +12,7 @@ import android.widget.EditText;
 import com.indogames.chits.R;
 import com.indogames.chits.action.ThrowChits;
 import com.indogames.chits.beans.Player;
-import com.indogames.chits.beans.Role;
 import com.indogames.chits.constants.GameConstants;
-import com.indogames.chits.constants.Roles;
-
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.P1name).requestFocus();
+        findViewById(R.id.nameP1).requestFocus();
 
-        noOfRounds = findViewById(R.id.rounds).toString();
-        if (noOfRounds.matches("")) {
-
-            rounds = GameConstants.DEFAULT_ROUNDS;
-        } else {
+//        noOfRounds = findViewById(R.id.rounds).toString();
+//        if (noOfRounds.matches("")) {
+//
+//            rounds = GameConstants.DEFAULT_ROUNDS;
+//        } else {
 //            System.out.println("No. of rounds:"+noOfRounds+"Soda");
 //            rounds = Integer.parseInt(noOfRounds);
-        }
+//        }
         System.out.println("No. of rounds:"+noOfRounds+"Yoda");
         thrwChits = (Button) findViewById(R.id.throwIt);
         thrwChits.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         three = new Player();
         four = new Player();
 
-        editText = (EditText)(findViewById(R.id.P1name));
+        editText = (EditText)(findViewById(R.id.nameP1));
 
         if (!editText.getText().toString().matches("") ) {
             one.setPlayerName(editText.getText().toString());
@@ -74,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
         one.setViewId(editText.getId());
 
-        editText = (EditText)(findViewById(R.id.P2name));
+        editText = (EditText)(findViewById(R.id.nameP2));
         if (!editText.getText().toString().matches("") ) {
             two.setPlayerName(editText.getText().toString());
         } else {
