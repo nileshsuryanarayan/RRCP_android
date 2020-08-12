@@ -28,7 +28,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         splashAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.splash_anim);
         companyName = findViewById(R.id.company);
-        companyName.setAnimation(splashAnimation);
+//        companyName.setAnimation(splashAnimation);
 
         new Handler().postDelayed(new Runnable() {
             @Override

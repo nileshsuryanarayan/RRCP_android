@@ -32,4 +32,8 @@ public class GameConstants {
 
 	// Default number of rounds
 	public final static int DEFAULT_ROUNDS = 5;
+
+	// App Countdown constants
+	public final static long CATCH_CHOR_COUNTDOWN = 10000;
+	public final static long COUNT_DOWN_INTERVAL = 1000;
 }
